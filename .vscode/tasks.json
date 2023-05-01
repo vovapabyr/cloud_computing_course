@@ -71,7 +71,7 @@
       "type": "func",
       "dependsOn": "build (functions)",
       "options": {
-        "cwd": "${workspaceFolder}/homeworks/02_faas_hw/bin/Debug/net7.0"
+        "cwd": "${workspaceFolder}/homeworks/02_faas_hw/bin/Debug/net6.0"
       },
       "command": "host start",
       "isBackground": true,
