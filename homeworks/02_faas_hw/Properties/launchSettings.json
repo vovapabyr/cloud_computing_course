@@ -2,7 +2,7 @@
   "profiles": {
     "_02_faas_hw": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7136",
+      "commandLineArgs": "--port 7137",
       "launchBrowser": false
     }
   }
