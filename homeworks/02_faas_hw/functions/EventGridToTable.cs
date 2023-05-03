@@ -19,7 +19,8 @@ namespace CloudComputing.Fass02
         {
             log.LogInformation("Start adding new message to table.");
 
-            var message = JsonConvert.DeserializeObject<Message>(eventGridEvent.Data.ToString());
+            var messageAsJson = eventGridEvent.Data.ToString();
+            var message = JsonConvert.DeserializeObject<Message>(messageAsJson);
 
             log.LogInformation($"New Message { message }.");
 
@@ -30,7 +31,7 @@ namespace CloudComputing.Fass02
             {
                 TableClient tableClient = new TableClient(connectionString, tableName);
                 var messageEntity = new TableEntity(eventGridEvent.Subject, message.Id);
-                messageEntity.Add("text", message.Text);
+                messageEntity.Add("data", messageAsJson);
                 var addEntityResult = await tableClient.AddEntityAsync<TableEntity>(messageEntity);
                 return addEntityResult;
             });
