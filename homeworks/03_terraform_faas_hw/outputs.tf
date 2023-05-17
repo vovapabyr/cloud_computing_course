@@ -23,6 +23,16 @@ output "storage_account_tablename" {
   sensitive = true
 }
 
+output "storage_account_container" {
+  value     = module.main.storage_account_container
+  sensitive = true
+}
+
+output "storage_account_blob" {
+  value     = module.main.storage_account_blob
+  sensitive = true
+}
+
 output "azure_function_name" {
   value     = module.main.azure_function_name
   sensitive = true
