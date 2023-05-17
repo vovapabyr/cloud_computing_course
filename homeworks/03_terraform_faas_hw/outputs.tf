@@ -28,17 +28,17 @@ output "storage_account_container" {
   sensitive = true
 }
 
-output "storage_account_blob" {
-  value     = module.main.storage_account_blob
-  sensitive = true
-}
-
 output "azure_function_name" {
   value     = module.main.azure_function_name
   sensitive = true
 }
 
-output "events_subscription_id" {
-  value     = module.subscription.events_subscription_id
+output "events_to_table_subscription_id" {
+  value     = module.subscription.events_to_table_subscription_id
+  sensitive = true
+}
+
+output "events_to_blob_subscription_id" {
+  value     = module.subscription.events_to_blob_subscription_id
   sensitive = true
 }

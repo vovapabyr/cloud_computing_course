@@ -55,6 +55,7 @@ resource "azurerm_function_app" "faas" {
     "EVENT_GRID_TOPIC_KEY" : azurerm_eventgrid_topic.events.primary_access_key
     "STORAGE_ACCOUNT_MESSAGES_TABLE_CONNECTION_STRING" : azurerm_storage_account.sa.primary_connection_string,
     "MESSAGES_TABLE_NAME" : azurerm_storage_table.messages.name,
+    "MESSAGES_CONTAINER_NAME" : azurerm_storage_container.messages.name,
     "APPINSIGHTS_INSTRUMENTATIONKEY" : azurerm_application_insights.app_insights.instrumentation_key
   }
 }

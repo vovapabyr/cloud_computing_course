@@ -18,10 +18,3 @@ resource "azurerm_storage_container" "messages" {
   storage_account_name  = azurerm_storage_account.sa.name
   container_access_type = "private"
 }
-
-resource "azurerm_storage_blob" "messages" {
-  name                   = "messages.json"
-  storage_account_name   = azurerm_storage_account.sa.name
-  storage_container_name = azurerm_storage_container.messages.name
-  type                   = "Append"
-}

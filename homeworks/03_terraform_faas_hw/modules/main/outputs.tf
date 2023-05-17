@@ -33,11 +33,6 @@ output "storage_account_container" {
   sensitive = true
 }
 
-output "storage_account_blob" {
-  value     = azurerm_storage_blob.messages.name
-  sensitive = true
-}
-
 output "azure_function_name" {
   value     = azurerm_function_app.faas.name
   sensitive = true
