@@ -1,0 +1,3 @@
+# Instructions and results
+ 1. Run trivy in docker to detect vulnerability in ```ghcr.io/mlflow/mlflow:v2.3.0``` image: ```docker run --rm -v ~/.trivy:/root/.cache/ aquasec/trivy:0.40.0 image --severity HIGH,CRITICAL --ignore-unfixed ghcr.io/mlflow/mlflow:v2.3.0```
+ 2. Run grype in docker to detect vulnerability in ```ghcr.io/mlflow/mlflow:v2.3.0``` image: ```docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -e GRYPE_LOG_LEVEL=error anchore/grype:v0.54.0 ghcr.io/mlflow/mlflow:v2.3.0 --only-fixed | grep -E 'Critical|High'```. There is an issue with the latest version of grype which shows suppressed lines even when without ```--show-suppressed``` option (https://github.com/anchore/grype/issues/1053), that's why I used older version (v0.54.0). 
