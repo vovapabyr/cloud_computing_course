@@ -12,6 +12,7 @@ resource "azurerm_storage_account" "faas_storage" {
   location                 = azurerm_resource_group.faas.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  min_tls_version = "TLS1_2"
 }
 
 resource "azurerm_app_service_plan" "faas" {

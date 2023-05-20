@@ -3,6 +3,7 @@ resource "azurerm_eventgrid_topic" "events" {
   location            = var.location
   resource_group_name = azurerm_resource_group.faas.name
 
+  public_network_access_enabled = false
   identity {
     type = "SystemAssigned"
   }
