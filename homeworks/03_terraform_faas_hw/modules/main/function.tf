@@ -60,3 +60,28 @@ resource "azurerm_function_app" "faas" {
     "APPINSIGHTS_INSTRUMENTATIONKEY" : azurerm_application_insights.app_insights.instrumentation_key
   }
 }
+
+resource "azurerm_monitor_diagnostic_setting" "faas_logs" {
+  name = "logs"
+
+  target_resource_id         = azurerm_function_app.faas.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.main.id
+
+  log {
+    category = "FunctionAppLogs"
+
+    retention_policy {
+      enabled = true
+      days = 30
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+
+    retention_policy {
+      enabled = true
+      days = 30
+    }
+  }
+}
